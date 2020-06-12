@@ -1,0 +1,40 @@
+<html>
+
+<head>
+<title>portfolio</title>
+<style>
+    .class1{
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div class="class1">
+        <img
+       id="image"
+        height="150"
+        width="150">
+       
+       
+        <h2 id="name"></h2>
+        <p id="bio"></p>
+     <h4 id="followers"></h4>
+        <a href="panerusushant@gmail.com">contact me</a>
+       </div>
+<script>
+    fetch("https://api.github.com/users/sushant1997").then
+    (response=>response.json())
+    .then(function(data){
+        console.log(data)
+       
+        document.getElementById('image').src=data['avatar_url']
+        document.getElementById('name').textContent=data['name']
+        document.getElementById('bio').textContent=data['bio']
+        document.getElementById('followers').textContent=data['followers']
+    })
+
+</script>
+
+
+</body>
+</html>

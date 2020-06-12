@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>repose</title>
+    </head>
+    <body>
+        <p id="repos"></p>
+        <script>
+
+            fetch ("https://api.github.com/users/sushant1997/repos")
+            .then(response=>response.json())
+            .then (function(data){
+                console.log(data[0])
+                console.log(data[1])
+                
+                arr=[]
+                for (var i=0;i<data.length;i++)
+                {arr += data[i]['name']+' '+arr}
+                document.getElementById('repos').textContent=arr
+        
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
